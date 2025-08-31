@@ -1,0 +1,130 @@
+/* Reset/Variáveis */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+:root{
+  --black:#000; --white:#fff; --text:#111; --muted:#666; --line:#e8e8e8;
+  --bg:#fff; --radius:12px; --shadow:0 8px 24px rgba(0,0,0,.08);
+}
+body{ font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background:var(--bg); color:var(--text); line-height:1.55; }
+
+/* Header e Navegação */
+header {
+  background-color: #1e1e1e;
+}
+
+header h1 {
+  font-size: 2rem;
+  color: #ffffff;
+  text-align: center;
+  margin: 0 auto;
+}
+
+
+.top-bar {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap:30px;
+
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  width: 40px;
+}
+
+.nav {
+  display: flex;
+  gap: 20px;
+}
+
+.nav a {
+  color: #ffa500;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.nav a:hover {
+  color: #e69500;
+}
+
+/* Conteúdo */
+main { max-width:1100px; margin:0 auto; padding: 24px 16px 48px; }
+.hero { padding: 28px 0 8px; }
+.hero h1 { font-size: clamp(26px, 4vw, 40px); margin: 0 0 6px; }
+.lead { margin: 0; color:#333; }
+
+/* Toolbar (filtros + busca) */
+.cc-toolbar { display:flex; flex-wrap:wrap; gap:12px; align-items:center; margin-top: 16px; }
+.filters { display:flex; gap:8px; flex: 1 1 auto; }
+.filter-chip {
+  appearance:none; border:1px solid var(--line); background:#fff; color:#222;
+  padding:8px 12px; border-radius:999px; cursor:pointer; font: inherit;
+}
+.filter-chip:hover { background:#f7f7f7; }
+.filter-chip.active { background:#111; color:#fff; border-color:#111; }
+.cc-search {
+  flex: 0 1 320px; padding:10px 12px; border:1px solid var(--line); border-radius:10px; font:inherit;
+}
+
+/* Galeria */
+.cc-grid {
+  display:grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap:16px; margin-top: 18px;
+}
+.card-item {
+  border:1px solid var(--line); border-radius: var(--radius); background:#fff; overflow:hidden;
+  box-shadow: var(--shadow); display:flex; flex-direction:column;
+}
+.card-media { aspect-ratio: 4/3; background:#f4f4f4; position:relative; cursor:pointer; }
+.card-media img, .card-media video { width:100%; height:100%; object-fit:cover; display:block; }
+.card-body { padding: 12px 14px; }
+.card-title { margin: 0 0 6px; font-size: 1.05rem; }
+.card-tags { display:flex; flex-wrap:wrap; gap:6px; }
+.tag { font-size:.8rem; background:#f1f1f1; color:#333; padding:4px 8px; border-radius:999px; }
+.card-cta { margin-top: 10px; display:flex; gap:10px; }
+.card-cta a { text-decoration:none; font-weight:600; }
+.card-cta .primary { padding:8px 10px; background:#111; color:#fff; border-radius:8px; }
+
+/* Lightbox */
+.cc-lightbox {
+  position: fixed; inset: 0; background: rgba(0,0,0,.9);
+  display:none; align-items:center; justify-content:center; padding: 24px;
+}
+.cc-lightbox[aria-hidden="false"]{ display:flex; }
+.cc-lightbox-inner { max-width: min(1000px, 96vw); width: 100%; }
+#lbContent { width:100%; }
+#lbContent img, #lbContent video, #lbContent iframe { width:100%; height:auto; display:block; border-radius: 10px; }
+.cc-close {
+  position:absolute; right:24px; top:24px; font-size: 32px; line-height:1;
+  background:transparent; color:#fff; border:0; cursor:pointer;
+}
+.cc-lightbox-caption { color:#ddd; margin-top: 12px; }
+
+/* Footer */
+.site-footer { background:#f7f7f7; border-top:1px solid var(--line); }
+.footer-grid { max-width:1100px; margin:0 auto; padding:16px; display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:12px; }
+.footer-grid a { color:#000; text-decoration:none; }
+
+/* Acessibilidade (apenas visual) */
+.visually-hidden { position:absolute !important; height:1px; width:1px; overflow:hidden; clip:rect(1px,1px,1px,1px); white-space:nowrap; }
+
+/* Responsivo */
+@media (max-width: 900px){
+  .cc-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 620px){
+  .nav-toggle { display:inline-block; }
+  .nav-links { display:none; position:absolute; right:16px; top:56px; background:#000; padding:10px; border-radius:10px; flex-direction:column; min-width:200px; }
+  .nav-links.show { display:flex; }
+  .cc-grid { grid-template-columns: 1fr; }
+  .cc-search { flex: 1 1 100%; }
+}
