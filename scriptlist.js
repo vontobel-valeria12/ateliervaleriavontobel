@@ -7,7 +7,7 @@ const preisliste = {
     { service: "Hose seitlich enger mit Futter", preis: 20 },
     { service: "Hose beidseitig enger + Bund", preis: 20 },
     { service: "Hose Reissverschluss", preis: 15, ab: true },
-    { service: "Löcher flicken (Conserto simples)", preis: 15, simple: true },
+    { service: "Löcher flicken ", preis: 15, simple: true },
     { service: "Taschen zunähen", preis: 10, ab: true }
   ],
   "Bluse": [
@@ -99,3 +99,4 @@ function renderList(data){
 }
 
 document.addEventListener("DOMContentLoaded", () => renderList(preisliste));
+
