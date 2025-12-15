@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Vontobel – Näharbeiten, Kleideränderungen , Reparaturen und personalisierte Geschenke" />
+   <meta property="og:phone_number" content="+41 76 501 90 56" />
+   <meta property="og:locality" content="Weinfelden" />
+   <meta property="og:region" content="Thurgau" />
+   <meta property="og:country-name" content="CH" />
+   <link rel="icon" href="imagem/icon.png" type="image/x-icon">
+   <meta name="google-site-verification" content="iK-b9iz7WQxPXnoR9aGdGH57VwOhbduaC3Z7IlMaOdY" />
+   <link rel="stylesheet" href="styles.css">
+
+
+<meta property="og:type" content="www.valeriavontobel.ch" />
+
+
+
+    <title>Kreative Näharbeiten</title>
+</head>
+<body>
+     <header>
+    <div class="top-bar">
+      <div class="logo">
+        <img src="imagem/capa/ico/logo.jpg" alt="Logo Glaube"/>
+        <h1>Spardose</h1>
+      </div>
+      <nav class="nav">
+       <a href="https://www.valeriavontobel.ch/">Home</a>
+        <a href="index.html">Produkte</a>
+        <a href="preise.html">Reparaturen</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+  <div class="product-details">
+    <div class="product-gallery">
+      <img src="imagem/23.jpeg" alt="taschenkuhen" />
+      <div class="gallery-thumbnails">
+        <img src="imagem/23.jpeg" alt="tasche"/>
+        <img src="imagem/24.jpeg" alt="tasche"/>
+        <img src="imagem/25.jpeg" alt="tasche"/>
+    
+      </div>
+    </div>
+
+    <div class="product-info">
+      <h2>Tasche</h2>
+        <div class="product__offer">
+  <span class="product__price product__price--old">von 25,00</span>
+  <span class="product__price product__price--special">Pro 10,00</span>
+</div>
+
+      
+    <p> Alle Details Ihrer Bestellung werden direkt mit mir über WhatsApp besprochen.
+Keine automatischen Antworten.
+Jede Kundin und jeder Kunde wird mit Aufmerksamkeit, Herz und Sorgfalt in jeder Phase betreut.</p>
+  
+<div class="buttons">
+        <a href="https://api.whatsapp.com/send?phone=41765019056&text=Hallo!%20Ich%20bin"
+           class="whatsapp-button" target="_blank">
+          <i class="fab fa-whatsapp"></i> Bestellung via WhatsApp
+        </a>
+
+      </div>
+  <!-- Seção de Especificações -->
+   
+  <div class="product-specs">
+  <ul class="tabs">
+    <li class="active" onclick="mostrarAba('details')"><i class="fas fa-info-circle"></i> Details</li>
+    <li onclick="mostrarAba('faq')"><i class="fas fa-question-circle"></i> Häufige Fragen</li>
+    <li onclick="mostrarAba('zahlung')"><i class="fas fa-credit-card"></i> Zahlungsarten</li>
+  </ul>
+
+  <div class="specs-content" id="details">
+    <p><strong>Material:</strong> Baumwolltasche </p>
+    <p><strong>Farbe:</strong>Rot </p>
+    <p><strong>Maße:</strong> 70 cm / 50 cm</p>
+   
+  </div>
+
+  <div class="specs-content" id="faq" style="display: none;">
+    <p><strong></strong></p>
+
+    <p><strong></strong>
+       </p>
+        </div>
+
+  <div class="specs-content" id="zahlung" style="display: none;">
+    <p><strong>Zahlungsarten:</strong></p>
+    <ul>
+      <li>✔️ Twint</li>
+      <li>✔️ Banküberweisung</li>
+      <li>✔️ Barzahlung bei Abholung</li>
+    </ul>
+  </div>
+</div>
+
+</main>
+
+
+ <script>
+  function mostrarAba(id) {
+  const abas = document.querySelectorAll('.specs-content');
+  const botoes = document.querySelectorAll('.tabs li');
+
+  abas.forEach(el => el.style.display = 'none');
+  botoes.forEach(el => el.classList.remove('active'));
+
+  document.getElementById(id).style.display = 'block';
+  event.target.classList.add('active');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const thumbnails = document.querySelectorAll('.gallery-thumbnails img');
+  const mainImage = document.querySelector('.product-gallery img');
+
+  thumbnails.forEach(thumbnail => {
+    thumbnail.addEventListener('click', () => {
+      mainImage.src = thumbnail.src;
+    });
+  });
+
+  const whatsappBtn = document.querySelector('.whatsapp-button');
+  if (whatsappBtn) {
+    whatsappBtn.addEventListener('click', () => {
+      const quantity = document.getElementById('quantity')?.value || 1;
+      console.log(`WhatsApp Bestellung mit Menge: ${quantity}`);
+    });
+  }
+});
+
+</script>
+
+  
+</body>
+</html>
